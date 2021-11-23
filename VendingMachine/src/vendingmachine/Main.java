@@ -19,6 +19,7 @@ public class Main {
         Menu menu = new Menu("-------------Vending Machine-------------");
         menu.add("Buy Product");
         menu.add("Go to next day");
+        menu.add("Update Product");
         menu.add("Exit");
         VendingMachine machine = new VendingMachine();
         int userChoice=0;
@@ -26,7 +27,8 @@ public class Main {
             userChoice=menu.getUserChoice();
             switch(userChoice){
                 case 1: machine.insertMoney();break;
-                case 2: case 3: machine.goToNextDay();break;
+                case 2: machine.goToNextDay();break;
+                case 3: machine.updateProduct();
             }
         }while (userChoice<menu.size());
     }

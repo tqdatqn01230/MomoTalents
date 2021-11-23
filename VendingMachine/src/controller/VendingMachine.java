@@ -75,6 +75,9 @@ public class VendingMachine {
     public void goToNextDay(){
         revenueList.addRevenue();
     }
+    public void updateProduct(){
+        productList.readFromFile();
+    }
     public void chooseProducts(){
         Revenue currentDay= revenueList.get(revenueList.size()-1);
         Order order = new Order(currentDay.getDay());
@@ -84,7 +87,12 @@ public class VendingMachine {
             if (!check) break;
             productList.viewAllProduct();
             System.out.printf("Your money: %.0f\n",currentMoney);
-            int ID= MyScanner.getInt("Enter ID of product you want: ", 1,productList.size());
+            int ID= MyScanner.getInt("Enter ID of product you want: ", 0,productList.size());
+            if (ID==0){
+                boolean confirm = MyScanner.getBoolean("You really want to exit buying?");
+                if (confirm) break;
+                else continue;
+            }
             Product product = productList.getProduct(ID);
             if (product.getQuantity()==0){
                 System.out.println("Sorry, this product is out of stock!");

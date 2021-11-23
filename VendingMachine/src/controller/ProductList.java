@@ -51,6 +51,7 @@ public class ProductList extends ArrayList<Product> {
             fileReader = new FileReader(fileName);
             bufferedReader = new BufferedReader(fileReader);
             //read lines from file
+            if (this.size()>0) this.clear();
             while ((line = bufferedReader.readLine()) != null) {
                 line.trim();
                 if (line.length() > 0) {
@@ -58,6 +59,8 @@ public class ProductList extends ArrayList<Product> {
                     String name = stringTokenizer.nextToken();
                     double price = Double.parseDouble(stringTokenizer.nextToken().trim());
                     int quantity= Integer.parseInt(stringTokenizer.nextToken().trim());
+                    int status = Integer.parseInt(stringTokenizer.nextToken().trim());
+                    if (status==0) continue;
                     Product product = new Product(name, price,quantity);
                     addProduct(product);
                 }
@@ -84,5 +87,6 @@ public class ProductList extends ArrayList<Product> {
         for (Product product:this){
             System.out.printf("%-9d%-12s%.0f%14d\n",product.getID(),product.getName(),product.getPrice(),product.getQuantity());
         }
+        System.out.println("0. Confirm Order and exit buying product");
     }
 }
