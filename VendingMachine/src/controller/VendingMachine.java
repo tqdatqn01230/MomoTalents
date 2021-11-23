@@ -63,6 +63,7 @@ public class VendingMachine {
                if (currentMoney==0){
                    boolean choice=MyScanner.getBoolean("Are you sure you want to exit buying?");
                    if (choice) break;
+                   else continue;
                }else break;
            }
            int quantity= MyScanner.getInt("Please enter number of banknotes:", 1,1000000);
