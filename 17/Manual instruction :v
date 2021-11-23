@@ -1,0 +1,9 @@
+2 option when first using machine : 
+  - Go to next day: set next day manually (for admin)
+  - Buy product
+  - Update product: update product from fake database
+With buy product choice you will
+  - Insert money into machine and decide that if you want to  continue buying product or not
+  - Next phase, choose product, you will choose product or confirm order and buy product
+  - In confirm order phase, if you get win prize and we don't have enough product for you, we will give you 50% discount on 1 product instead
+Note: There are 4 files txt represent Database that will be written and read for saving database.
